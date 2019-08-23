@@ -1,19 +1,24 @@
-console.log('sdflksdjflj')
 const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
-const randomGenerator = require('../randomGenerator.js');
 
-const connection = mysql.createConnection(mysqlConfig);
+const db = mysql.createConnection(mysqlConfig);
 
-console.log(randomGenerator.allData.length);
-for( var i = 0; i < randomGenerator.allData.length; i++ ) {
-    let currentData = randomGenerator.allData[i];
-    let queryString = 'INSERT INTO relatedPlaces (type, city, price, rating, votes, img) VALUES ( ?, ?, ?, ?, ?, ?)'
-        connection.query(queryString, 
-            [currentData.type, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img]
-            )
+const grabRandomPlaces = (cb) => {
+    let randomIds = [];
+    for(var i = 0; i < 12; i++ ) {
+        let randomId = Math.ceil(Math.random()*100);
+        while( randomIds.indexOf(randomId) >= 0 ) {
+            randomId = Math.ceil(Math.random()*100);
+        }
+        randomIds.push(randomId);       
+    }
+    console.log(randomIds)
+    
+    let queryString = 'SELECT * FROM relatedPlaces WHERE id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=?'
+    db.query(queryString, randomIds, (err, data) => {
+        cb(null, data)
+    });
 }
 
-module.exports = {
-
-  };
+module.exports.db = db;
+module.exports.grabRandomPlaces = grabRandomPlaces;
