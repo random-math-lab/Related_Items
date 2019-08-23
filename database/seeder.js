@@ -1,5 +1,7 @@
-let API_KEY = 'b795c3ed52c5b1785dd4c255c50382b7';
 var faker = require('faker');
+const db = require('./index.js');
+
+
 
 getRoomType = () => {
     let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOEFT', 'PRIVATE ROOM', ];
@@ -7,7 +9,7 @@ getRoomType = () => {
 }
 
 getPrice = () => {
-    return Math.floor(Math.random() * 160);
+    return Math.floor(Math.random() * 160)+20;
 }
 
 //rating must be at least 3 stars to be recommended, goes from 3 to 5 stars
@@ -20,7 +22,7 @@ getVotes = () => {
 }
 
 getImages = () => {
-    return faker.image.avatar();
+    return faker.image.image();
 }
 
 getPostingInfo = (id) => {
@@ -33,14 +35,25 @@ getPostingInfo = (id) => {
         rating: getRating(),
         votes: getVotes(),
         img: getImages(),
+        title: faker.lorem.words(),
     }
     return info;
 }
 
 
 let allData = [];
-for(var i = 0; i < 100; i++ ) {
+for(var i = 1; i < 101; i++ ) {
     allData.push(getPostingInfo(i));
+}
+
+db.db.query('TRUNCATE TABLE relatedPlaces')
+for( var i = 0; i < allData.length; i++ ) {
+    let currentData = allData[i];
+    let queryString = 'INSERT INTO relatedPlaces (type, title, city, price, rating, votes, img) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
+    db.db.query(
+        queryString, 
+        [currentData.type, currentData.title, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img]
+    )
 }
 
 module.exports = {
