@@ -1,0 +1,17 @@
+DROP DATABASE IF EXISTS airbnb;
+
+CREATE DATABASE airbnb;
+
+USE airbnb;
+
+
+CREATE TABLE relatedPlaces (
+id INT NOT NULL AUTO_INCREMENT,
+type TEXT NOT NULL,
+city Text NOT NULL,
+price INT NOT NULL,
+img Text NOT NULL,
+rating INT NOT NULL,
+votes INT NOT NULL,
+PRIMARY KEY (ID)
+);
