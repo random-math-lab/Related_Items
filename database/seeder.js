@@ -34,7 +34,7 @@ getPostingInfo = (id) => {
         price: getPrice(),
         rating: getRating(),
         votes: getVotes(),
-        img: getImages(),
+        img: `https://relatedplaces.s3-us-west-1.amazonaws.com/${id}.jpg`,
         title: faker.lorem.words(),
     }
     return info;
@@ -55,7 +55,3 @@ for( var i = 0; i < allData.length; i++ ) {
         [currentData.type, currentData.title, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img]
     )
 }
-
-module.exports = {
-    allData,
-  };

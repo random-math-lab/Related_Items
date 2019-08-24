@@ -1,4 +1,5 @@
 import React from 'react';
+import RelatedListings from './relatedListings.jsx'
 
 class App extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
     render() {
         if(this.state.currentListing.length) {
             return (
-                <div></div>
+                <RelatedListings listings={this.state.currentListing}/>
             )
         }
         return (
