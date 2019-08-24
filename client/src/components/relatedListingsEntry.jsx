@@ -1,6 +1,6 @@
 import React from 'react';
 
-class RelatedListings extends React.Component {
+class RelatedListingsEntry extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,9 +12,11 @@ class RelatedListings extends React.Component {
     render() {
          return (
              <div>
-                 <RelatedListingsEntry />
+                 <img src={this.props.listings[0].img} width="200" height="200"></img>
              </div>
          )
      }
     
 }
+
+export default RelatedListingsEntry;
