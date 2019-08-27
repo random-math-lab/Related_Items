@@ -4,7 +4,7 @@ const db = require('./index.js');
 
 
 getRoomType = () => {
-    let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOEFT', 'PRIVATE ROOM', ];
+    let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOFT', 'PRIVATE ROOM',  ];
     return roomType[Math.floor(Math.random()*3)];
 }
 
@@ -55,3 +55,4 @@ for( var i = 0; i < allData.length; i++ ) {
         [currentData.type, currentData.title, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img]
     )
 }
+

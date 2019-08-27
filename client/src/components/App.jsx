@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import RelatedListings from './relatedListings.jsx'
 
 class App extends React.Component {
@@ -14,11 +15,14 @@ class App extends React.Component {
     }
 
     getData() {
-        fetch('/api/relatedPlaces/1')    
-        .then( (data) =>  (data.json()) )
-        .then( (message) => JSON.stringify(message) )
-        .then( (string) => JSON.parse(string) )
-        .then( (output) => this.setState( {currentListing: output} ) )
+        axios('/api/relatedPlaces/1')
+        .then( (res) => res.data )
+        .then( (places) => this.setState({currentListing : places}) )
+        // fetch('/api/relatedPlaces/1')    
+        // .then( (data) =>  (data.json()) )
+        // .then( (message) => JSON.stringify(message) )
+        // .then( (string) => JSON.parse(string) )
+        // .then( (output) => this.setState( {currentListing: output} ) )
     }
     
 

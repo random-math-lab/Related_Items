@@ -12,7 +12,6 @@ app.use(express.static( 'client/dist' ) );
 
 
 app.get('/api/relatedPlaces/:id', (req, res) => {
-    console.log('ASDFLJSDFLJ');
     db.grabRandomPlaces( (err, data) => {
         if(err) {console.log(err); return; }
         console.log(data);
