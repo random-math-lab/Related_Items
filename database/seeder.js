@@ -2,7 +2,6 @@ var faker = require('faker');
 const db = require('./index.js');
 
 
-
 getRoomType = () => {
     let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOFT', 'PRIVATE ROOM',  ];
     return roomType[Math.floor(Math.random()*3)];
@@ -36,6 +35,9 @@ getPostingInfo = (id) => {
         votes: getVotes(),
         img: `https://relatedplaces.s3-us-west-1.amazonaws.com/${id}.jpg`,
         title: faker.lorem.words(),
+    }
+    if( info.rating === 5 ) {
+        info.type = "VERIFIED"
     }
     return info;
 }

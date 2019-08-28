@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from 'styled-components'
+
+
+const EntryDiv = styled.div`
+   {
+    position: relative;
+    max-width: 350;
+    height: 100%;
+    margin: 10;
+  }
+`;
 
 class RelatedListingsEntry extends React.Component {
     constructor(props) {
@@ -10,15 +21,14 @@ class RelatedListingsEntry extends React.Component {
     } 
     
     render() {
-        console.log(this.props.listings)
          return (
-             <div>
-                 <img src={this.props.listings[0].img} width="300" height="200"></img>
-                <div>{this.props.listings[0].type} · {this.props.listings[0].city}</div>
-                <div>{this.props.listings[0].title}</div>
-                <div>${this.props.listings[0].price}/night</div>
-                <div>{this.props.listings[0].rating} {this.props.listings[0].votes}</div>               
-             </div>
+             <EntryDiv >
+                <img src={this.props.listing.img} width="350" height="60%"></img>
+                <div>{this.props.listing.type} · {this.props.listing.city}</div>
+                <div>{this.props.listing.title}</div>
+                <div>${this.props.listing.price}/night</div>
+                <div>{this.props.listing.rating} {this.props.listing.votes}</div>               
+             </EntryDiv>
          )
      }
     

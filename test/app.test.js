@@ -5,10 +5,15 @@ import { shallow } from 'enzyme';
 import App from '../client/src/components/App.jsx';
 
 
-describe('testing app', () => {
-  it('should render correctly in "debug" mode', () => {
+describe('App', () => {
+  it('should render App', () => {
     const component = shallow(<App />);
   
     expect(component).toMatchSnapshot();
   });
+
+//   it('should run getData once', () => {
+//       expect(App.getData).toHaveBeenCalled();
+//   })
+
 });
