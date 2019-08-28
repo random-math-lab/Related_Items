@@ -31,8 +31,6 @@ class App extends React.Component {
         this.getData();
     }
 
-
-
     getData() {
         axios('/api/relatedPlaces/1')
         .then( (res) => res.data )
@@ -43,9 +41,35 @@ class App extends React.Component {
         // .then( (string) => JSON.parse(string) )
         // .then( (output) => this.setState( {currentListing: output} ) )
     }
+
+    leftClick() {
+        let start = this.state.start;
+        let finish = this.state.finish;
+        if (start > 0 && finish > 0) {
+          this.setState({
+            start: start - 1,
+            finish: finish - 1,
+          });
+        }
+    }
+
+    rightClick() {
+        let start = this.state.start;
+        let finish = this.state.finish;
+        if (finish < images.length) {
+          this.setState({
+            start: start + 1,
+            finish: finish + 1
+          });
+        }
+    }
     
 
     render() {
+        var startindex = this.state.start;
+        var finishindex = this.state.finish;
+        const fadedleft =  "arrow-left";
+        const fadedright = "arrow-right";
         if(this.state.currentListing.length) {
             return (
                 <div>
