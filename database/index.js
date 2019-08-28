@@ -16,6 +16,7 @@ const grabRandomPlaces = (cb) => {
     
     let queryString = 'SELECT * FROM relatedPlaces WHERE id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=? OR id=?'
     db.query(queryString, randomIds, (err, data) => {
+        console.log(data);
         cb(null, data)
     });
 }

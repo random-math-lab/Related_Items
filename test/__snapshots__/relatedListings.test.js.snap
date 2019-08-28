@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`relatedListings should render 3 places 1`] = `ShallowWrapper {}`;
+
+exports[`relatedListings should render RelatedListings 1`] = `ShallowWrapper {}`;
