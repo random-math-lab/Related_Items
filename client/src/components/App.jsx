@@ -7,16 +7,23 @@ const TitleDiv = styled.div`
    {
     display: flex;
     position: relative;
+<<<<<<< HEAD
     width: 72%;
+=======
+    width: 74%;
+>>>>>>> master
     margin: auto;
     white-space: nowrap;
   }
 `;
+<<<<<<< HEAD
 
 const MainContainer = styled.div`
 {
 
 }`
+=======
+>>>>>>> master
 
 class App extends React.Component {
     constructor(props) {
@@ -39,6 +46,8 @@ class App extends React.Component {
         this.getData();
     }
 
+
+
     getData() {
         axios('/api/relatedPlaces/1')
         .then( (res) => res.data )
@@ -48,6 +57,7 @@ class App extends React.Component {
         // .then( (message) => JSON.stringify(message) )
         // .then( (string) => JSON.parse(string) )
         // .then( (output) => this.setState( {currentListing: output} ) )
+<<<<<<< HEAD
     }
 
     leftClick() {
@@ -70,6 +80,8 @@ class App extends React.Component {
             finish: finish + 1
           });
         }
+=======
+>>>>>>> master
     }
     
 
@@ -80,6 +92,7 @@ class App extends React.Component {
         const fadedright = "arrow-right";
         if(this.state.currentListing.length) {
             return (
+<<<<<<< HEAD
                 <MainContainer>
                     <TitleDiv>MORE PLACES TO STAY</TitleDiv>
                     <RelatedListings 
@@ -91,6 +104,12 @@ class App extends React.Component {
                     finish={this.state.finish}
                     />
                 </MainContainer>
+=======
+                <div>
+                    <TitleDiv>MORE PLACES TO STAY</TitleDiv>
+                    <RelatedListings listings={this.state.currentListing} pos={this.state.currentIndex}/>
+                </div>
+>>>>>>> master
             )
         }
         return (

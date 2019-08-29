@@ -36,6 +36,7 @@ describe('relatedListings', () => {
             "img": "https://relatedplaces.s3-us-west-1.amazonaws.com/31.jpg"
         }
     ]
+<<<<<<< HEAD
     const component = shallow(<RelatedListings 
         listings={sampleData} 
         pos={0} 
@@ -43,6 +44,9 @@ describe('relatedListings', () => {
         rightClick={[]}
         start={0}
         finish={3}/>);
+=======
+    const component = shallow(<RelatedListings listings={sampleData} pos={0}/>);
+>>>>>>> master
     
     it('should render 3 places', () => {
         expect(component.children().length).toBe(3);
