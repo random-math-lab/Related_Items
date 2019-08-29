@@ -5,6 +5,12 @@ import RelatedListings from './relatedListings.jsx'
 
 const TitleDiv = styled.div`
    {
+    // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    // font-size: 24px !important;
+    // font-weight: 800 !important;
+    // line-height: 1.25em !important;
+    // color: rgb(72, 72, 72) !important;
+    font-family: Montserrat, sans-serif;
     display: flex;
     position: relative;
     width: 72%;
@@ -15,7 +21,8 @@ const TitleDiv = styled.div`
 
 const MainContainer = styled.div`
 {
-
+    justify-content: center;
+    align-content: center;
 }`
 
 class App extends React.Component {
@@ -55,23 +62,29 @@ class App extends React.Component {
     leftClick() {
         let start = this.state.start;
         let finish = this.state.finish;
+        let translateValue = this.state.translateValue;
         if (start > 0 && finish > 0) {
           this.setState({
             start: start - 1,
             finish: finish - 1,
-          });
+            translateValue: translateValue + 350,
+        });
         }
     }
 
     rightClick() {
         let start = this.state.start;
         let finish = this.state.finish;
+        let translateValue = this.state.translateValue;
+        console.log(this.state.currentListing.length)
         if (finish < this.state.currentListing.length) {
           this.setState({
             start: start + 1,
-            finish: finish + 1
+            finish: finish + 1,
+            translateValue: translateValue - 350,
           });
         }
+
     }
     
 
@@ -91,6 +104,7 @@ class App extends React.Component {
                     rightClick={this.rightClick}
                     start={this.state.start}
                     finish={this.state.finish}
+                    translateValue={this.state.translateValue}
                     />
                 </MainContainer>
             )

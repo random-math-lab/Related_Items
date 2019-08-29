@@ -30,55 +30,72 @@ const LeftArrow = styled.span` {
 `
 const ContainerDiv = styled.div`
     {
-        align-self: center;
+        width: 100%;
+        overflow: hidden;
         display: flex;
         margin: 0;
+    }
+`
+
+const MainContainerDiv = styled.div`
+    {
+        width: 86%;
+        align-self: center;
+        display: flex;
+        margin: 0 auto;
         justify-content: center;
         align-content: center;
     }
 `
 
+const SectionDiv = styled.div`
+{
+display: flex;
+position: relative;
+margin: 1;
+//height: 350px;
+white-space: nowrap;
+cursor: pointer;
+transform: translateX(${props => props.translateValue}px);
+transition: transform ease-out 1s;
+}
+`
 
 const RelatedListings = (props) => {
     let currentListings = [];
-
-    const SectionDiv = styled.div`
-   {
-    display: flex;
-    position: relative;
-    width: 74%;
-    margin: 1;
-    //height: 350px;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-    // transform: translateX(${props.translateValue} px),
-    // transition: 'transform ease-out 3s'   
-
-  }
-`;
-
+    console.log(props.translateValue)
     
-
+    
+    
+    
     // const getListings = () => {
-    //     currentListings.push(props.listings[props.pos]);
-    //     currentListings.push(props.listings[props.pos + 1]);
-    //     currentListings.push(props.listings[props.pos + 2]);
-    // }
-
-    // getListings();
-    let listings = props.listings.slice(props.start, props.finish)
-    return (
-        <ContainerDiv >
+        //     currentListings.push(props.listings[props.pos]);
+        //     currentListings.push(props.listings[props.pos + 1]);
+        //     currentListings.push(props.listings[props.pos + 2]);
+        // }
+        
+        // getListings();
+        let listings = props.listings;
+        console.log(listings);
+        return (
+            <MainContainerDiv>
             <LeftArrow onClick={props.leftClick}></LeftArrow>
-            <SectionDiv>
+        <ContainerDiv >
+            <SectionDiv translateValue={props.translateValue}>
                 {listings.map( (listing) => {
-                    return <RelatedListingsEntry key={listing.id} listing={listing}/>
+                    return <RelatedListingsEntry 
+                    key={listing.id} 
+                    listing={listing}
+                    translateValue={props.translateValue}
+                    />
                 })}
             </SectionDiv>
-            <RightArrow onClick={props.rightClick}></RightArrow>
         </ContainerDiv>
+            <RightArrow onClick={props.rightClick}></RightArrow>
+
+        </MainContainerDiv>
     )
 }
+
 
 export default RelatedListings;
