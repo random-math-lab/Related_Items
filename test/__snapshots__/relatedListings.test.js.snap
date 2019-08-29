@@ -1,5 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
+=======
 exports[`relatedListings should render 3 places 1`] = `ShallowWrapper {}`;
 
+>>>>>>> master
 exports[`relatedListings should render RelatedListings 1`] = `ShallowWrapper {}`;

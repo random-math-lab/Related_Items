@@ -12,7 +12,11 @@
     "create-db": "mysql -u root -p < schema.sql",
     "seed": "node ./database/seeder.js",
     "start": "nodemon server/index.js",
+<<<<<<< HEAD
+    "test": "jest --coverage"
+=======
     "test": "jest"
+>>>>>>> master
   },
   "jest": {
     "setupFilesAfterEnv": [

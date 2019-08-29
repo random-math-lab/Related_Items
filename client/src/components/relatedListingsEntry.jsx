@@ -14,16 +14,12 @@ const EntryDiv = styled.div`
 class RelatedListingsEntry extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
-
     } 
     
     render() {
          return (
              <EntryDiv >
-                <img src={this.props.listing.img} width="350" height="60%"></img>
+                <img src={this.props.listing.img} width="100%" height="60%"></img>
                 <div>{this.props.listing.type} · {this.props.listing.city}</div>
                 <div>{this.props.listing.title}</div>
                 <div>${this.props.listing.price}/night</div>
