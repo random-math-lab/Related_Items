@@ -3,7 +3,6 @@ import RelatedListingsEntry from './relatedListingsEntry.jsx'
 import styled from 'styled-components'
 
 
-<<<<<<< HEAD
 const RightArrow = styled.span` {
     align-self: center;
     height:0;
@@ -38,9 +37,6 @@ const ContainerDiv = styled.div`
         align-content: center;
     }
 `
-=======
-
->>>>>>> master
 
 
 const RelatedListings = (props) => {
@@ -50,7 +46,6 @@ const RelatedListings = (props) => {
    {
     display: flex;
     position: relative;
-<<<<<<< HEAD
     width: 74%;
     margin: 1;
     //height: 350px;
@@ -63,17 +58,6 @@ const RelatedListings = (props) => {
   }
 `;
 
-=======
-    width: 75%;
-    margin: auto;
-    height: 350px;
-    overflow: hidden;
-    white-space: nowrap;
-    transform: translateX(${props.translateValue} px),
-    transition: 'transform ease-out 0.45s'
-  }
-`;
->>>>>>> master
     
 
     // const getListings = () => {
@@ -83,7 +67,6 @@ const RelatedListings = (props) => {
     // }
 
     // getListings();
-<<<<<<< HEAD
     let listings = props.listings.slice(props.start, props.finish)
     return (
         <ContainerDiv >
@@ -95,15 +78,6 @@ const RelatedListings = (props) => {
             </SectionDiv>
             <RightArrow onClick={props.rightClick}></RightArrow>
         </ContainerDiv>
-=======
-
-    return (
-        <SectionDiv>
-                {props.listings.map( (listing) => {
-                    return <RelatedListingsEntry key={listing.id} listing={listing}/>
-                })}
-        </SectionDiv>
->>>>>>> master
     )
 }
 
