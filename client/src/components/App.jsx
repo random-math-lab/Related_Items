@@ -6,10 +6,10 @@ import RelatedListings from './relatedListings.jsx'
 const TitleDiv = styled.div`
    {
     // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    // font-size: 24px !important;
-    // font-weight: 800 !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
     // line-height: 1.25em !important;
-    // color: rgb(72, 72, 72) !important;
+    color: rgb(72, 72, 72) !important;
     font-family: Montserrat, sans-serif;
     display: flex;
     position: relative;
