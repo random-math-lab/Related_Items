@@ -7,11 +7,16 @@ const TitleDiv = styled.div`
    {
     display: flex;
     position: relative;
-    width: 74%;
+    width: 72%;
     margin: auto;
     white-space: nowrap;
   }
 `;
+
+const MainContainer = styled.div`
+{
+
+}`
 
 class App extends React.Component {
     constructor(props) {
@@ -23,6 +28,9 @@ class App extends React.Component {
             start: 0,
             finish: 3
         }
+
+        this.leftClick = this.leftClick.bind(this);
+        this.rightClick = this.rightClick.bind(this);
     }
 
 
@@ -56,7 +64,7 @@ class App extends React.Component {
     rightClick() {
         let start = this.state.start;
         let finish = this.state.finish;
-        if (finish < images.length) {
+        if (finish < this.state.currentListing.length) {
           this.setState({
             start: start + 1,
             finish: finish + 1
@@ -72,10 +80,17 @@ class App extends React.Component {
         const fadedright = "arrow-right";
         if(this.state.currentListing.length) {
             return (
-                <div>
+                <MainContainer>
                     <TitleDiv>MORE PLACES TO STAY</TitleDiv>
-                    <RelatedListings listings={this.state.currentListing} pos={this.state.currentIndex}/>
-                </div>
+                    <RelatedListings 
+                    listings={this.state.currentListing} 
+                    pos={this.state.currentIndex}
+                    leftClick={this.leftClick}
+                    rightClick={this.rightClick}
+                    start={this.state.start}
+                    finish={this.state.finish}
+                    />
+                </MainContainer>
             )
         }
         return (
