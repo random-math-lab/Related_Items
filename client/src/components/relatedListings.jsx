@@ -57,7 +57,7 @@ margin: 1;
 white-space: nowrap;
 cursor: pointer;
 transform: translateX(${props => props.translateValue}px);
-transition: transform ease-out 1s;
+transition: transform linear .25s;
 }
 `
 
