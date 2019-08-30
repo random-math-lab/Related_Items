@@ -34,7 +34,7 @@ const EntryDiv = styled.div`
 {
     position: relative;
     width: 330;
-    height: 100%;
+    height: 325;
     margin: 10;
 }
 `;
@@ -111,7 +111,7 @@ const RelatedListingsEntry = (props) => {
                         {star5}
                     </StarSpan>
                     <VoteSpan>
-                        {props.listing.votes}
+                        {' ' + props.listing.votes}
                     </VoteSpan>
                 </div>               
              </EntryDiv>

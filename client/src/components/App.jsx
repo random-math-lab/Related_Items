@@ -29,6 +29,41 @@ const MainContainer = styled.div`
     align-content: center;
 }`
 
+const ModalBackground = styled.div`
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}`
+
+//Modal Content
+const ModalContent = styled.div`
+{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}`
+
+/* The Close Button */
+const CloseX = styled.span`
+{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}`
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -38,6 +73,7 @@ class App extends React.Component {
             translateValue: 0,
             start: 0,
             finish: 3,
+            modal: false
         }
 
         this.leftClick = this.leftClick.bind(this);
@@ -115,9 +151,11 @@ class App extends React.Component {
         var finishindex = this.state.finish;
         const fadedleft =  "arrow-left";
         const fadedright = "arrow-right";
+
+
         if(this.state.currentListing.length) {
             return (
-                <MainContainer>
+                <MainContainer>                   
                     <TitleDiv>
                         <TitleTextDiv>More places to stay</TitleTextDiv>
                     </TitleDiv>
@@ -131,6 +169,20 @@ class App extends React.Component {
                     translateValue={this.state.translateValue}
                     likeClick={this.likeClick}
                     />
+                    {/* <div>
+                        <button onClick={this.toggleState}>Open Modal</button>
+                        <div>Modal is: {this.state.modal ? "Open" : "Closed"}</div>
+                        {this.state.isModalOpen && (
+                            <Modal
+                                id="modal"
+                                isOpen={this.state.modal}
+                                onClose={this.toggleState}
+                                class="my-class"
+                            >
+                                <div className="box-body">I am the content of the modal</div>
+                            </Modal>
+                            )}
+                    </div> */}
                 </MainContainer>
             )
         }
