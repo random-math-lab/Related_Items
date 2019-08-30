@@ -14,5 +14,6 @@ price INT NOT NULL,
 rating INT NOT NULL,
 votes INT NOT NULL,
 img Text NOT NULL,
+liked BOOLEAN NOT NULL,
 PRIMARY KEY (ID)
 );

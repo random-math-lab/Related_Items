@@ -3,8 +3,8 @@ const db = require('./index.js');
 
 
 getRoomType = () => {
-    let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOFT', 'PRIVATE ROOM',  ];
-    return roomType[Math.floor(Math.random()*3)];
+    let roomType = ['ENTIRE APARTMENT' , 'ENTIRE HOUSE', 'ENTIRE LOFT', 'PRIVATE ROOM', 'SINGLE ROOM' ];
+    return roomType[Math.floor(Math.random()*5)];
 }
 
 getPrice = () => {
@@ -35,10 +35,11 @@ getPostingInfo = (id) => {
         votes: getVotes(),
         img: `https://relatedplaces.s3-us-west-1.amazonaws.com/${id}.jpg`,
         title: faker.lorem.words(),
+        liked: false
     }
-    if( info.rating === 5 ) {
-        info.type = "VERIFIED"
-    }
+    // if( info.rating === 5 ) {
+    //     info.type = "VERIFIED"
+    // }
     return info;
 }
 
@@ -51,10 +52,10 @@ for(var i = 1; i < 101; i++ ) {
 db.db.query('TRUNCATE TABLE relatedPlaces')
 for( var i = 0; i < allData.length; i++ ) {
     let currentData = allData[i];
-    let queryString = 'INSERT INTO relatedPlaces (type, title, city, price, rating, votes, img) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
+    let queryString = 'INSERT INTO relatedPlaces (type, title, city, price, rating, votes, img, liked) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)'
     db.db.query(
         queryString, 
-        [currentData.type, currentData.title, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img]
+        [currentData.type, currentData.title, currentData.city, currentData.price, currentData.rating, currentData.votes, currentData.img, currentData.liked]
     )
 }
 

@@ -5,17 +5,21 @@ import RelatedListings from './relatedListings.jsx'
 
 const TitleDiv = styled.div`
    {
-    // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 24px !important;
-    font-weight: 800 !important;
-    // line-height: 1.25em !important;
-    color: rgb(72, 72, 72) !important;
-    font-family: Montserrat, sans-serif;
     display: flex;
     position: relative;
     width: 72%;
     margin: auto;
     white-space: nowrap;
+  }
+`;
+
+const TitleTextDiv = styled.div`
+{
+    font-family:  Roboto, Helvetica Neue, Montserrat, sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800;
+    line-height: 1.25em !important;
+    color: rgb(72, 72, 72) !important;
   }
 `;
 
@@ -33,11 +37,12 @@ class App extends React.Component {
             currentIndex: 0,
             translateValue: 0,
             start: 0,
-            finish: 3
+            finish: 3,
         }
 
         this.leftClick = this.leftClick.bind(this);
         this.rightClick = this.rightClick.bind(this);
+        this.likeClick = this.likeClick.bind(this);
     }
 
 
@@ -86,6 +91,23 @@ class App extends React.Component {
         }
 
     }
+
+    likeClick(id) {
+        console.log('clicked')
+        let copyListings = this.state.currentListing.slice();
+        for(let i = 0; i < copyListings.length; i++) {
+            if(copyListings[i].id === id) {
+                if(!copyListings[i].liked) {
+                    console.log('LIKED')
+                    copyListings[i].liked = true;
+                    this.setState({currentListing: copyListings});
+                } else {
+                    console.log('Already liked!')
+                }
+            }
+        }
+        
+    }
     
 
     render() {
@@ -96,7 +118,9 @@ class App extends React.Component {
         if(this.state.currentListing.length) {
             return (
                 <MainContainer>
-                    <TitleDiv>MORE PLACES TO STAY</TitleDiv>
+                    <TitleDiv>
+                        <TitleTextDiv>More places to stay</TitleTextDiv>
+                    </TitleDiv>
                     <RelatedListings 
                     listings={this.state.currentListing} 
                     pos={this.state.currentIndex}
@@ -105,6 +129,7 @@ class App extends React.Component {
                     start={this.state.start}
                     finish={this.state.finish}
                     translateValue={this.state.translateValue}
+                    likeClick={this.likeClick}
                     />
                 </MainContainer>
             )
