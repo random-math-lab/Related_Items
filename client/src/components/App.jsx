@@ -29,40 +29,6 @@ const MainContainer = styled.div`
     align-content: center;
 }`
 
-const ModalBackground = styled.div`
-{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}`
-
-//Modal Content
-const ModalContent = styled.div`
-{
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}`
-
-/* The Close Button */
-const CloseX = styled.span`
-{
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}`
-
 
 class App extends React.Component {
     constructor(props) {
@@ -134,11 +100,11 @@ class App extends React.Component {
         for(let i = 0; i < copyListings.length; i++) {
             if(copyListings[i].id === id) {
                 if(!copyListings[i].liked) {
-                    console.log('LIKED')
                     copyListings[i].liked = true;
                     this.setState({currentListing: copyListings});
                 } else {
-                    console.log('Already liked!')
+                    copyListings[i].liked = false;
+                    this.setState({currentListing: copyListings})
                 }
             }
         }
@@ -147,12 +113,7 @@ class App extends React.Component {
     
 
     render() {
-        var startindex = this.state.start;
-        var finishindex = this.state.finish;
-        const fadedleft =  "arrow-left";
-        const fadedright = "arrow-right";
-
-
+        
         if(this.state.currentListing.length) {
             return (
                 <MainContainer>                   
