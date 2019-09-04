@@ -8,7 +8,7 @@ const TitleDiv = styled.div`
    {
     display: flex;
     position: relative;
-    width: 72%;
+    width: 1040px;
     margin: auto;
     white-space: nowrap;
   }
