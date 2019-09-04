@@ -85,7 +85,6 @@ class App extends React.Component {
         let start = this.state.start;
         let finish = this.state.finish;
         let translateValue = this.state.translateValue;
-        console.log(this.state.currentListing.length)
         if (finish < this.state.currentListing.length) {
           this.setState({
             start: start + 1,
@@ -97,7 +96,6 @@ class App extends React.Component {
     }
 
     likeClick(id) {
-        console.log('clicked')
         let copyListings = this.state.currentListing.slice();
         for(let i = 0; i < copyListings.length; i++) {
             if(copyListings[i].id === id) {
@@ -132,20 +130,6 @@ class App extends React.Component {
                     translateValue={this.state.translateValue}
                     likeClick={this.likeClick}
                     />
-                    {/* <div>
-                        <button onClick={this.toggleState}>Open Modal</button>
-                        <div>Modal is: {this.state.modal ? "Open" : "Closed"}</div>
-                        {this.state.isModalOpen && (
-                            <Modal
-                                id="modal"
-                                isOpen={this.state.modal}
-                                onClose={this.toggleState}
-                                class="my-class"
-                            >
-                                <div className="box-body">I am the content of the modal</div>
-                            </Modal>
-                            )}
-                    </div> */}
                 </MainContainer>
             )
         }
