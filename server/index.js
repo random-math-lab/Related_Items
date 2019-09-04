@@ -19,7 +19,6 @@ app.use((req, res, next) => {
 app.get('/api/relatedPlaces/:id', (req, res) => {
     db.grabRandomPlaces( (err, data) => {
         if(err) {console.log(err); return; }
-        console.log(data);
         res.send(data) 
     });
 

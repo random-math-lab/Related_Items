@@ -74,7 +74,7 @@ const LikedHeartDiv = styled.div`
     position: absolute;
     top: 8px;
     right: 16px;
-    font-size: 33px !important;
+    font-size: 25px !important;
     font-weight: 400 !important;
     
 }`

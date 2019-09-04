@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // import styled from 'styled-components'
-const styled = window.styled;
+// const styled = window.styled;
 import RelatedListings from './relatedListings.jsx'
 
 const TitleDiv = styled.div`
