@@ -33,9 +33,9 @@ const PriceDiv = styled.div`
 const EntryDiv = styled.div`
 {
     position: relative;
-    width: 330;
-    height: 325;
-    margin: 10;
+    width: 330px;
+    height: 325px;
+    margin: 10px;
 }
 `;
 

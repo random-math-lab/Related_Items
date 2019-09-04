@@ -32,6 +32,7 @@ const ContainerDiv = styled.div`
 const MainContainerDiv = styled.div`
     {
         width: 76.9999%;
+        height: 374px;
         align-self: center;
         display: flex;
         margin: 0 auto;
@@ -44,7 +45,7 @@ const SectionDiv = styled.div`
 {
 display: flex;
 position: relative;
-margin: 1;
+margin: 1px;
 //height: 350px;
 white-space: nowrap;
 cursor: pointer;
@@ -58,14 +59,14 @@ const RelatedListings = (props) => {
     let left;
     let right;
     if(props.start > 0 ) {
-        left = <LeftArrow onClick={props.leftClick}><img src='LeftArrow.png' width='17' height='23'></img></LeftArrow>;
+        left = <LeftArrow onClick={props.leftClick}><img src='https://relatedplaces.s3-us-west-1.amazonaws.com/LeftArrow.png' width='17' height='23'></img></LeftArrow>;
     } else {
-        left = <div><img src='blank.png' width='17' height='23'></img></div>
+        left = <div><img src='https://relatedplaces.s3-us-west-1.amazonaws.com/blank.png' width='17' height='23'></img></div>
     }
     if(props.finish < 12 ) {
-        right = <RightArrow onClick={props.rightClick}><img src='RightArrow.png' width='17' height='23'></img></RightArrow>;
+        right = <RightArrow onClick={props.rightClick}><img src='https://relatedplaces.s3-us-west-1.amazonaws.com/RightArrow.png' width='17' height='23'></img></RightArrow>;
     } else {
-        right = <div><img src='blank.png' width='17' height='23'></img></div>
+        right = <div><img src='https://relatedplaces.s3-us-west-1.amazonaws.com/blank.png' width='17' height='23'></img></div>
     }
 
         let listings = props.listings;

@@ -27,6 +27,7 @@ const MainContainer = styled.div`
 {
     justify-content: center;
     align-content: center;
+    height: 374px;
 }`
 
 
@@ -56,7 +57,7 @@ class App extends React.Component {
 
 
     getData() {
-        axios('/api/relatedPlaces/1')
+        axios('http://localhost:3003/api/relatedPlaces/1')
         .then( (res) => res.data )
         .then( (places) => this.setState({currentListing : places}) )
         // fetch('/api/relatedPlaces/1')    
