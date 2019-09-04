@@ -31,7 +31,7 @@ const ContainerDiv = styled.div`
 
 const MainContainerDiv = styled.div`
     {
-        width: 76.9999%;
+        width: 1097px;
         height: 374px;
         align-self: center;
         display: flex;
