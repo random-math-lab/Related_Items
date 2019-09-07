@@ -2,7 +2,7 @@ import React from 'react';
 import RelatedListingsEntry from './relatedListingsEntry.jsx'
 // import styled from 'styled-components'
 
-const styled = window.styled;
+//const styled = window.styled;
 
 const RightArrow = styled.span` {
     width: 20px;

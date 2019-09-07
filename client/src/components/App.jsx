@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // import styled from 'styled-components'
-// const styled = window.styled;
+//const styled = window.styled;
 import RelatedListings from './relatedListings.jsx'
 
 const TitleDiv = styled.div`
@@ -58,7 +58,7 @@ class App extends React.Component {
 
 
     getData() {
-        axios('http://localhost:3003/api/relatedPlaces/1')
+        axios('http://localhost:3306/api/relatedPlaces/1')
         .then( (res) => res.data )
         .then( (places) => this.setState({currentListing : places}) )
         // fetch('/api/relatedPlaces/1')    

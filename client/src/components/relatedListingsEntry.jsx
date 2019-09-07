@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components'
-const styled = window.styled;
+//const styled = window.styled;
 
 const TypeAndCityDiv = styled.div`
     {

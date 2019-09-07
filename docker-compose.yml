@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  related_items:
+    build: ./
+    depends_on:
+      - 'db'
+    ports:
+      - '3306:3306'
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: airbnb
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: 'mynewpassword'
+    volumes:
+     - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    # volumes: 
+    #   - ./database:/tmp/database
+    # command: mysqld --init-file="/tmp/database/schema.sql"
+

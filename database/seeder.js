@@ -59,3 +59,4 @@ for( var i = 0; i < allData.length; i++ ) {
     )
 }
 
+db.db.end();
